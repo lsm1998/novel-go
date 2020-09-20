@@ -1,0 +1,10 @@
+version: 1.0
+
+rpc:
+  port: 11000
+  server: IM
+  metadata:
+
+registry:
+  adders: [ 127.0.0.1:8500 ]
+

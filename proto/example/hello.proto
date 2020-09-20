@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// protoc -I=. --go_out=. hello.proto
+package example;
+
+message HelloMessageReq {
+  string name = 1;
+}
+
+message HelloMessageRsp {
+  string result = 1;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+// protoc -I=. --go_out=. im.proto
+package im;
+
+message Message{
+  int64 id = 1;
+  int32 type = 2;
+  int64 form_id = 3;
+  int64 to_id = 4;
+  string title = 5;
+  string content = 6;
+}
