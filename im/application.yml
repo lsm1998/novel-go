@@ -1,10 +1,14 @@
 version: 1.0
 
+im:
+  index: /im
+  port: 8888
+
 rpc:
   port: 11000
   server: IM
   metadata:
 
 registry:
-  adders: [ 127.0.0.1:8500 ]
+  adders: [ "47.103.211.234:8500" ]
 

@@ -5,10 +5,9 @@ import (
 	"github.com/rcrowley/go-metrics"
 	"github.com/smallnest/rpcx/server"
 	"github.com/smallnest/rpcx/serverplugin"
-	"im/comet"
-	"im/config"
-	"im/service"
 	"time"
+	"user/config"
+	"user/service"
 	"utils"
 )
 
@@ -19,8 +18,7 @@ func main() {
 	server.UsePool = true
 	newServer := server.NewServer()
 	addRegistryPlugin(newServer)
-	_ = newServer.RegisterName(config.Config.Rpc.Server, new(service.ImServer), "")
-	go comet.StartWS()
+	_ = newServer.RegisterName(config.Config.Rpc.Server, new(service.UserServer), "")
 	listenRpc(newServer)
 }
 

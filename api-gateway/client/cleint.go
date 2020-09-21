@@ -7,16 +7,17 @@ import (
 )
 
 var (
-	ImClient client.XClient
+	ImClient   client.XClient
+	UserClient client.XClient
 )
 
 func Init() {
-	list := []client.XClient{ImClient}
+	clients := []*client.XClient{&ImClient, &UserClient}
 
-	for i, v := range config.Config.Gateway.ServiceList {
-		temp := client.NewConsulDiscovery(v, v, config.Config.Registry.Adders, nil)
+	for i, v := range config.Config.Gateway.List {
+		dis := client.NewConsulDiscovery(v, v, config.Config.Registry.Adders, nil)
 		option := client.DefaultOption
 		option.SerializeType = protocol.ProtoBuffer
-		list[i] = client.NewXClient(v, client.Failtry, client.RoundRobin, temp, option)
+		*(clients[i]) = client.NewXClient(v, client.Failtry, client.RoundRobin, dis, option)
 	}
 }

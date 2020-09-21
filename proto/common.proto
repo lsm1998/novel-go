@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+// protoc -I=. --go_out=. common.proto
+package common;
+
+message Result{
+  int32 code = 1;
+  string msg = 2;
+}

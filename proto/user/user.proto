@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// protoc -I=. --go_out=. user.proto
+package user;
+
+message LoginReq{
+  string user_name = 1;
+  string pass_word = 2;
+}
+
+message LoginRsp{
+  int32 code = 1;
+  string token = 2;
+}
+
+message UserListReq{
+
+}
+
+message UserListRsp{
+
+}
+
+message RegisterReq{
+
+}
+
+message RegisterRsp{
+
+}

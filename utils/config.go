@@ -15,11 +15,13 @@ type Config struct {
 	Mysql
 	Redis
 	Gateway
+	Im
 	Version string
 }
 
 type Gateway struct {
-	ServiceList []string `yaml:",flow"`
+	List []string `yaml:",flow"`
+	Port int
 }
 
 type Rpc struct {
@@ -33,6 +35,14 @@ type Registry struct {
 }
 
 type Mysql struct {
+	User     string
+	Password string
+	Db       string
+}
+
+type Im struct {
+	Index string
+	Port  int
 }
 
 type Redis struct {

@@ -1,0 +1,16 @@
+version: 1.0
+
+rpc:
+  port: 12000
+  server: USER
+  metadata:
+
+registry:
+  adders: [ "47.103.211.234:8500" ]
+
+mysql:
+  user: root
+  password: fuck123
+  db: novel
+
+
