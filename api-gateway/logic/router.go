@@ -11,13 +11,15 @@ func StartHttpServer(router *gin.Engine) {
 	_ = router.Run(fmt.Sprintf(":%d", config.Config.Gateway.Port))
 }
 
-func routerInit(route *gin.Engine) {
-	imS := route.Group("/im")
+func routerInit(router *gin.Engine) {
+	// 授权
+	router.Use(Authorize())
+	imS := router.Group("/im")
 	{
 		imS.GET("/send", sendMessage)
 	}
 
-	userS := route.Group("/user")
+	userS := router.Group("/user")
 	{
 		userS.GET("/login", login)
 	}
