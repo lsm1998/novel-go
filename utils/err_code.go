@@ -1,17 +1,25 @@
 package utils
 
 const (
-	OK = 0
+	OK = 200 + iota
+	// 请求参数错误
+	ERR_REQUEST_PARAMS
 	// 用户不存在
-	ERR_NOT_EXIS = 200 + iota
+	ERR_USER_NOT_EXIS
+	// 用户禁用
+	ERR_USER_DISABLE
+	// 限流
+	ERR_LIMIT
 	// token校验失败
 	ERR_TOKEN_VALID
 	// 登录失败，账号或者密码错误
-	ERR_LOGIN_PASS
+	ERR_LOGIN_FAIL
 	// 登录失败，重复登录
 	ERR_LOGIN_REPEAT
 	// 长连接失败
 	ERR_CONN
+	// 数据库错误
+	ERR_DB
 )
 
 type Error struct {

@@ -4,5 +4,8 @@ registry:
   adders: [ "47.103.211.234:8500" ]
 
 gateway:
-  list: [ "IM" ,"USER" ]
+  list: [ "IM" ,"USER","BASE","BOOK" ]
   port: 8080
+  limit: 100
+  blacklist: [ ]
+  whitelist: [ "127.0.0.1" ]

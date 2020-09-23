@@ -9,10 +9,12 @@ import (
 var (
 	ImClient   client.XClient
 	UserClient client.XClient
+	BaseClient client.XClient
+	BookClient client.XClient
 )
 
 func Init() {
-	clients := []*client.XClient{&ImClient, &UserClient}
+	clients := []*client.XClient{&ImClient, &UserClient, &BaseClient, &BookClient}
 
 	for i, v := range config.Config.Gateway.List {
 		dis := client.NewConsulDiscovery(v, v, config.Config.Registry.Adders, nil)

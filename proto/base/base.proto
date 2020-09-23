@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+// protoc -I=. --go_out=. base.proto
+package base;
+
+message Banner{
+  string title = 1;
+  string link = 2;
+  string img = 3;
+}
+
+message BannerListReq{
+}
+
+message BannerListRsp{
+  int32 code=1;
+  repeated Banner list = 2;
+}

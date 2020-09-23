@@ -3,6 +3,19 @@ syntax = "proto3";
 // protoc -I=. --go_out=. user.proto
 package user;
 
+message User{
+  int32 uid = 1;
+  string username = 2;
+  string nickname = 3;
+  string phone = 4;
+  int32  birthday = 5;
+  string  region = 6;
+  string  nation = 7;
+  string autograph = 8;
+  string head_img = 9;
+  string password = 10;
+}
+
 message LoginReq{
   string user_name = 1;
   string pass_word = 2;
@@ -11,6 +24,7 @@ message LoginReq{
 message LoginRsp{
   int32 code = 1;
   string token = 2;
+  User user = 3;
 }
 
 message UserListReq{
@@ -22,9 +36,9 @@ message UserListRsp{
 }
 
 message RegisterReq{
-
+  User  user = 1;
 }
 
 message RegisterRsp{
-
+  int32 code = 1;
 }

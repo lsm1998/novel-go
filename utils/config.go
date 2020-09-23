@@ -20,8 +20,11 @@ type Config struct {
 }
 
 type Gateway struct {
-	List []string `yaml:",flow"`
-	Port int
+	List      []string `yaml:",flow"`
+	Port      int
+	Limit     int
+	Blacklist []string `yaml:",flow"`
+	Whitelist []string `yaml:",flow"`
 }
 
 type Rpc struct {
@@ -38,6 +41,7 @@ type Mysql struct {
 	User     string
 	Password string
 	Db       string
+	Url      string
 }
 
 type Im struct {
@@ -46,6 +50,12 @@ type Im struct {
 }
 
 type Redis struct {
+	Adder     string
+	Port      int
+	Auth      string
+	Db        int
+	MaxIdle   int
+	MaxActive int
 }
 
 func LoadConfig() (*Config, error) {

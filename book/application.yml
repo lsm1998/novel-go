@@ -1,24 +1,16 @@
 version: 1.0
 
 rpc:
-  port: 12000
-  server: USER
+  port: 16000
+  server: BOOK
   metadata:
 
 registry:
   adders: [ "47.103.211.234:8500" ]
+
 
 mysql:
   url: 47.103.211.234:3306
   user: root
   password: fuck123
   db: novel
-
-redis:
-  adder: 119.29.117.244
-  port: 6379
-  auth: fuck123
-  db: 0
-  maxIdle: 5
-  maxActive: 10
-

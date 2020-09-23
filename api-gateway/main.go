@@ -13,6 +13,5 @@ func main() {
 		panic(err)
 	}
 	client.Init()
-
 	logic.StartHttpServer(gin.Default())
 }

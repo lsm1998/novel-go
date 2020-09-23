@@ -1,13 +1,13 @@
 package main
 
 import (
+	"book/config"
+	"book/service"
 	"fmt"
 	"github.com/rcrowley/go-metrics"
 	"github.com/smallnest/rpcx/server"
 	"github.com/smallnest/rpcx/serverplugin"
 	"time"
-	"user/config"
-	"user/service"
 	"utils"
 )
 
@@ -19,18 +19,8 @@ func main() {
 	server.UsePool = true
 	newServer := server.NewServer()
 	addRegistryPlugin(newServer)
-	_ = newServer.RegisterName(config.Config.Rpc.Server, new(service.UserServer), "")
-	go test()
+	_ = newServer.RegisterName(config.Config.Rpc.Server, new(service.BookServer), "")
 	_ = newServer.Serve("tcp", fmt.Sprintf(`:%d`, config.Config.Rpc.Port))
-}
-
-func test() {
-	t := new(service.UserServer)
-	for i := 0; i < 2; i++ {
-		go func() {
-			_ = t.Register(nil, nil, nil)
-		}()
-	}
 }
 
 func addRegistryPlugin(s *server.Server) {
