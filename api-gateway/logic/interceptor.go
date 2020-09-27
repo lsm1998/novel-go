@@ -55,3 +55,10 @@ func LimitHandler() gin.HandlerFunc {
 		}
 	}
 }
+
+func AccessRecord() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		println(c.Request.URL.Path)
+		c.ClientIP()
+	}
+}

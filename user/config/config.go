@@ -26,6 +26,7 @@ func Init() {
 	}
 	DB = db
 	MysqlDB = db.DB()
+	DB.LogMode(true)
 
 	redisC := Config.Redis
 	RedisClient = &redis.Pool{

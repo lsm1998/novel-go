@@ -16,6 +16,9 @@ func StartHttpServer(router *gin.Engine) {
 }
 
 func routerInit(router *gin.Engine) {
+	// 来访记录
+	router.Use(AccessRecord())
+
 	// 限流
 	router.Use(LimitHandler())
 
@@ -23,6 +26,7 @@ func routerInit(router *gin.Engine) {
 	baseS := router.Group("/base")
 	{
 		baseS.GET("/info", info)
+		baseS.GET("/show/:id", show)
 		baseS.GET("/bannerList", bannerList)
 		baseS.POST("/login", login)
 	}

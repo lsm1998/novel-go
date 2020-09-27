@@ -35,7 +35,7 @@ func test() {
 
 func addRegistryPlugin(s *server.Server) {
 	r := &serverplugin.ConsulRegisterPlugin{
-		ServiceAddress: "tcp@" + fmt.Sprintf(`:%d`, config.Config.Rpc.Port),
+		ServiceAddress: fmt.Sprintf(`tcp@:%d`, config.Config.Rpc.Port),
 		ConsulServers:  config.Config.Registry.Adders,
 		BasePath:       config.Config.Rpc.Server,
 		Metrics:        metrics.NewRegistry(),

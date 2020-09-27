@@ -5,6 +5,7 @@ import (
 	"context"
 	"github.com/gin-gonic/gin"
 	"proto/base"
+	"utils"
 )
 
 /**
@@ -18,9 +19,19 @@ func info(c *gin.Context) {
 	c.JSON(200, rsp)
 }
 
+func show(c *gin.Context) {
+	c.JSON(200, c.Param("id"))
+}
+
 func bannerList(c *gin.Context) {
 	var req base.BannerListReq
 	var rsp base.BannerListRsp
-	_ = client.BaseClient.Call(context.Background(), "BannerList", &req, &rsp)
+	if err := client.BaseClient.Call(context.Background(), "BannerList", &req, &rsp); err != nil {
+		c.JSON(500, gin.H{
+			"code": utils.ERR_SERVER_ERR,
+			"msg":  "服务端rpc错误",
+		})
+		return
+	}
 	c.JSON(200, rsp)
 }

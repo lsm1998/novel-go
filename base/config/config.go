@@ -21,4 +21,5 @@ func Init() {
 	}
 	DB = db
 	MysqlDB = db.DB()
+	DB.LogMode(true)
 }

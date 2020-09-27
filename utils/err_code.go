@@ -20,6 +20,8 @@ const (
 	ERR_CONN
 	// 数据库错误
 	ERR_DB
+	// 服务端错误
+	ERR_SERVER_ERR
 )
 
 type Error struct {

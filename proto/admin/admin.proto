@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+// protoc -I=./ -I=../ --proto_path=C:/Users/Administrator/go/novel-go --go_out=. ./*.proto
+package admin;
+
+import "proto/user/user.proto";
+
+message UserListReq{
+  user.User user = 1;
+  uint32 page = 2;
+  uint32 limit = 3;
+}
+
+message UserListRsp{
+  int32 code = 1;
+  repeated user.User list = 2;
+  uint32 total = 3;
+}
