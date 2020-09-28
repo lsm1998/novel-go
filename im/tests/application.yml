@@ -16,8 +16,3 @@ rpc:
 registry:
   adders: [ "47.103.211.234:8500" ]
 
-mysql:
-  url: 47.103.211.234:3306
-  user: root
-  password: fuck123
-  db: novel

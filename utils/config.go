@@ -45,8 +45,12 @@ type Mysql struct {
 }
 
 type Im struct {
-	Index string
-	Port  int
+	Index      string
+	Port       int
+	Group      string
+	ConsumerId string
+	Topic      string
+	Adders     []string `yaml:",flow"`
 }
 
 type Redis struct {

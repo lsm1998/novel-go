@@ -7,6 +7,7 @@ import (
 	"github.com/smallnest/rpcx/serverplugin"
 	"im/comet"
 	"im/config"
+	"im/job"
 	"im/service"
 	"time"
 	"utils"
@@ -16,6 +17,10 @@ func main() {
 	if err := utils.ScanConfig(&config.Config); err != nil {
 		panic(err)
 	}
+
+	// kafka消费者启动
+	job.Init()
+
 	server.UsePool = true
 	newServer := server.NewServer()
 	addRegistryPlugin(newServer)
