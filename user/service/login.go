@@ -26,8 +26,6 @@ func (t *UserServer) Login(ctx context.Context, req *user.LoginReq, rsp *user.Lo
 		return nil
 	}
 	// 登录校验规则，前端MD5加密后请求，尾部拼接密码盐
-	// e10adc3949ba59abbe56e057f20f883eabcdef
-	// 14e1b600b1fd579f47433b88e8d85291abcdef
 	if req.PassWord+userInfo.Salt == userInfo.Password {
 		rsp.Code = utils.OK
 		token, _ := utils.GenerateToken(int64(userInfo.UID), []int64{1, 2, 3})
